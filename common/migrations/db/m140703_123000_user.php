@@ -28,12 +28,12 @@ class m140703_123000_user extends Migration
         $this->createTable('{{%user_profile}}', [
             'user_id' => $this->primaryKey(),
             'firstname' => $this->string(),
-            'middlename' => $this->string(),
             'lastname' => $this->string(),
+            'city_id' => $this->integer(),
+            'phone' => $this->integer(),
+            'locale' => $this->string(32)->notNull(),
             'avatar_path' => $this->string(),
             'avatar_base_url' => $this->string(),
-            'locale' => $this->string(32)->notNull(),
-            'gender' => $this->smallInteger(1)
         ]);
 
         $this->addForeignKey('fk_user', '{{%user_profile}}', 'user_id', '{{%user}}', 'id', 'cascade', 'cascade');
